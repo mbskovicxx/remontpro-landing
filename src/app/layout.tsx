@@ -4,7 +4,6 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { COMPANY } from "@/constants/company";
-import { IMAGES } from "@/constants/images";
 import "./globals.css";
 
 const onest = Onest({

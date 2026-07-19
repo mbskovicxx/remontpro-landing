@@ -6,6 +6,13 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { COMPANY } from "@/constants/company";
 import "./globals.css";
 
+const siteUrl =
+  process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000";
+
 const onest = Onest({
   subsets: ["latin", "cyrillic"],
   weight: ["400", "500", "600", "700"],
@@ -21,6 +28,11 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000"
+  ),
   title: `${COMPANY.name} — Ремонт квартир под ключ в Москве и МО`,
   description:
     "Профессиональный ремонт квартир под ключ в Москве и области. Фиксированная смета, договор, гарантия 3 года. Бесплатный замер и расчёт. 500+ объектов за 12 лет.",

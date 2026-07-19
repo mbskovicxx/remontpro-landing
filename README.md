@@ -112,6 +112,18 @@ npm start
 3. Vercel автоматически определит Next.js — нажмите Deploy
 4. Готово — сайт доступен по URL вида `your-project.vercel.app`
 
+**Важно:** в настройках проекта Vercel (**Settings → Build & Deployment**) поле **Output Directory** должно быть **пустым**. Для Next.js не указывайте `out`, `dist` или `.next` — иначе будет `404: NOT_FOUND`.
+
+В корне репозитория лежит `vercel.json` с `"framework": "nextjs"` — он фиксирует правильный тип сборки.
+
+#### Если видите 404: NOT_FOUND
+
+1. **Settings → Build & Deployment → Framework Preset** → **Next.js**
+2. **Output Directory** → очистите поле (оставьте пустым)
+3. **Root Directory** → `./` (корень репозитория)
+4. **Build Command** → `npm run build` (или пусто — подставится из `vercel.json`)
+5. Сделайте **Redeploy** последнего коммита
+
 Или через CLI:
 
 ```bash

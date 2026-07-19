@@ -8,6 +8,12 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "engines": {
+    "node": ">=18"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  },
   "dependencies": {
     "clsx": "^2.1.1",
     "framer-motion": "^12.4.7",

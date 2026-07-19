@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  --color-graphite-50: #f7f7f8;
+  --color-graphite-100: #eeeef0;
+  --color-graphite-200: #d9d9de;
+  --color-graphite-300: #b8b8c0;
+  --color-graphite-400: #91919c;
+  --color-graphite-500: #73737f;
+  --color-graphite-600: #5d5d68;
+  --color-graphite-700: #4c4c55;
+  --color-graphite-800: #414148;
+  --color-graphite-900: #38383e;
+  --color-graphite-950: #1e1e22;
+
+  --color-copper-50: #fdf8f4;
+  --color-copper-100: #f9ede3;
+  --color-copper-200: #f2d9c4;
+  --color-copper-300: #e8bf9a;
+  --color-copper-400: #dc9d6a;
+  --color-copper-500: #c97d45;
+  --color-copper-600: #b8653a;
+  --color-copper-700: #994f32;
+  --color-copper-800: #7c412e;
+  --color-copper-900: #663728;
+  --color-copper-950: #371b14;
+
+  --font-display: var(--font-onest);
+  --font-body: var(--font-manrope);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply bg-white text-graphite-800 antialiased;
+    font-family: var(--font-body), system-ui, sans-serif;
+  }
+
+  ::selection {
+    @apply bg-copper-200 text-graphite-950;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-copper-500;
+  }
+}
+
+@layer utilities {
+  .container-main {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-28;
+  }
+
+  .heading-display {
+    font-family: var(--font-display), system-ui, sans-serif;
+    @apply font-semibold tracking-tight;
+  }
+
+  .hero-text-shadow {
+    text-shadow: 0 2px 24px rgb(0 0 0 / 0.45);
+  }
+
+  .form-input {
+    @apply w-full rounded-lg border border-graphite-200 bg-white px-4 py-3 text-sm text-graphite-800 transition-colors placeholder:text-graphite-400 focus:border-copper-500 focus:outline-none focus:ring-2 focus:ring-copper-500/20;
+  }
+}
